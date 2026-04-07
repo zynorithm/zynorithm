@@ -32,6 +32,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -41,6 +43,7 @@ body {
   font-size: 16px;
   line-height: 1.65;
   overflow-x: hidden;
+  width: 100%;
   cursor: auto;
 }
 
@@ -1043,7 +1046,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
   /* Navbar mobile */
   .nav-links {
-    position: fixed; top: 0; right: -100%;
+    position: fixed; top: 0; right: 0;
     width: 280px; height: 100vh;
     background: rgba(10,10,10,0.98);
     backdrop-filter: blur(20px);
@@ -1053,13 +1056,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     gap: 36px;
     padding: 40px;
     border-left: 1px solid rgba(138,43,226,0.2);
-    transition: right 0.4s cubic-bezier(0.4,0,0.2,1);
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    transform: translateX(100%);
     z-index: 9998;
     overflow-y: auto;
   }
   .nav-links.open {
-    right: 0;
-    animation: slideInRight 0.4s cubic-bezier(0.4,0,0.2,1);
+    transform: translateX(0);
   }
   .nav-link { font-size: 18px; }
   .hamburger { display: flex; }
@@ -1314,7 +1317,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 /* ── MOBILE MENU updated z-index ─────────────────────────── */
 @media (max-width: 768px) {
-  .nav-links { z-index: 9998; }
+  .nav-links { z-index: 9998; transform: translateX(100%); }
 
   /* project overlay always visible on touch */
   .project-overlay { opacity: 1 !important; }
