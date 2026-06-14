@@ -1497,12 +1497,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.75;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  /* show full description text instead of truncating */
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
   margin: 0;
-  flex: 1;
+  flex: 1 0 auto;
 }
 
 /* Tech tags */
@@ -1858,7 +1859,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
       font-size: 21px;
     }
     .pf-card--expanded .pf-card__desc {
-      -webkit-line-clamp: 4;
+      /* show full description for expanded cards */
+      -webkit-line-clamp: unset;
+      -webkit-box-orient: unset;
+      overflow: visible;
       font-size: 14px;
     }
     .pf-card--expanded .pf-card__actions {
